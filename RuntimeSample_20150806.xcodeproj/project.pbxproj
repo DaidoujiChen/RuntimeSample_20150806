@@ -15,6 +15,7 @@
 		01EC18E31B6CA83000F6A982 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC18E11B6CA83000F6A982 /* MainViewController.m */; };
 		01EC18E41B6CA83000F6A982 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01EC18E21B6CA83000F6A982 /* MainViewController.xib */; };
 		01EC18E81B6CA92500F6A982 /* NormalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EC18E71B6CA92500F6A982 /* NormalObject.m */; };
+		01F194C41B6D219800DBAD04 /* EnhanceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F194C31B6D219800DBAD04 /* EnhanceObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		01EC18E21B6CA83000F6A982 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		01EC18E61B6CA92500F6A982 /* NormalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalObject.h; sourceTree = "<group>"; };
 		01EC18E71B6CA92500F6A982 /* NormalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalObject.m; sourceTree = "<group>"; };
+		01F194C21B6D219800DBAD04 /* EnhanceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnhanceObject.h; sourceTree = "<group>"; };
+		01F194C31B6D219800DBAD04 /* EnhanceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnhanceObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		01EC18B61B6CA31800F6A982 /* RuntimeSample_20150806 */ = {
 			isa = PBXGroup;
 			children = (
+				01F194C11B6D219800DBAD04 /* EnhanceObject */,
 				01EC18E51B6CA90C00F6A982 /* NormalObject */,
 				01EC18BB1B6CA31800F6A982 /* AppDelegate.h */,
 				01EC18BC1B6CA31800F6A982 /* AppDelegate.m */,
@@ -138,6 +142,15 @@
 				01EC18E71B6CA92500F6A982 /* NormalObject.m */,
 			);
 			path = NormalObject;
+			sourceTree = "<group>";
+		};
+		01F194C11B6D219800DBAD04 /* EnhanceObject */ = {
+			isa = PBXGroup;
+			children = (
+				01F194C21B6D219800DBAD04 /* EnhanceObject.h */,
+				01F194C31B6D219800DBAD04 /* EnhanceObject.m */,
+			);
+			path = EnhanceObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F194C41B6D219800DBAD04 /* EnhanceObject.m in Sources */,
 				01EC18BD1B6CA31800F6A982 /* AppDelegate.m in Sources */,
 				01EC18E81B6CA92500F6A982 /* NormalObject.m in Sources */,
 				01EC18E31B6CA83000F6A982 /* MainViewController.m in Sources */,
@@ -417,6 +431,7 @@
 				01EC18D91B6CA31800F6A982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01EC18DA1B6CA31800F6A982 /* Build configuration list for PBXNativeTarget "RuntimeSample_20150806Tests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +440,7 @@
 				01EC18DC1B6CA31800F6A982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

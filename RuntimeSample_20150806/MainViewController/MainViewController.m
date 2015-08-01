@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "NormalObject.h"
+#import "EnhanceObject.h"
 
 @implementation MainViewController
 
@@ -16,6 +17,9 @@
 - (IBAction)runAction:(id)sender {
     NormalObject *normalObject = [NormalObject new];
     [normalObject invoke];
+    
+    EnhanceObject *enhanceObject = [EnhanceObject new];
+    [enhanceObject invoke];
 }
 
 @end
