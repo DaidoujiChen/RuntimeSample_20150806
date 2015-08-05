@@ -8,13 +8,21 @@
 
 #import "MainViewController.h"
 #import "NormalObject.h"
+#import <objc/runtime.h>
 
 @implementation MainViewController
 
 #pragma mark - IBAction
 
 - (IBAction)runAction:(id)sender {
+    Method m;
+    Ivar iv;
+    IMP imp;
+    
     NormalObject *normalObject = [NormalObject new];
+    
+    [normalObject invoke];
+    
     [normalObject invoke];
 }
 

@@ -33,17 +33,18 @@
 #pragma mark - instance method
 
 - (void)invoke {
-    NSDate *startDate = [NSDate date];
-    
-    self.storage = [NSMutableArray array];
-    for (NSInteger i = 0; i < 1000; i++) {
-        for (NSInteger j = 0; j < 1000; j++) {
-            [self.storage addObject:[NSNumber numberWithInteger:[NormalObject randomIntegerValue]]];
-        }
-    }
-    self.storage = nil;
-    
+    NSDate *startDate = [NSDate date];    
     NSLog(@"NormalObject Cost : %fs", -[startDate timeIntervalSinceNow]);
+}
+
+#pragma mark - life cycle
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.storage = [NSMutableArray arrayWithObjects:@"1", @"2", nil];
+    }
+    return self;
 }
 
 @end
