@@ -6,7 +6,7 @@ Dig
 
 ![image](https://s3-ap-northeast-1.amazonaws.com/daidoujiminecraft/Daidouji/%E8%9E%A2%E5%B9%95%E5%BF%AB%E7%85%A7+2015-08-07+%E4%B8%8B%E5%8D%887.45.38.png)
 
-app 運行後, 按 Run button, app 會停在這個斷點上, 這邊先說明, 我用的是 iphone6 模擬器, 所以下面所講的 address, register 之類的, 不一定會跟大家玩的相同, 不過大抵上會是一致的, 哈哈.
+app 運行後, 按 Run button, app 會停在這個斷點上, 這邊先說明, 我用的是 Xcode(9.1) + iPhone7(11.1) 模擬器, 所以下面所講的 address, register 之類的, 不一定會跟大家玩的相同, 不過大抵上會是一致的, 哈哈.
 
 玩法一
 ======
@@ -45,8 +45,8 @@ NormalObject
 然後我們開始挖他的 `Method` 
 
 `````
-(lldb) expr int $count;
-(lldb) expr Method *$methods = (Method *)class_copyMethodList(0x00000001064d1e70, &$count);
+(lldb) expr unsigned int $count;
+(lldb) expr Method *$methods = (Method *)class_copyMethodList((Class)0x00000001064d1e70, &$count);
 (lldb) expr for (int i = 0; i < $count; i++) { (void)NSLog(@"%s", (const char*)method_getName($methods[i])); }
 2015-08-07 20:04:54.412 RuntimeSample_20150806[4764:16999] setStorage:
 2015-08-07 20:04:54.413 RuntimeSample_20150806[4764:16999] storage
@@ -80,7 +80,7 @@ NormalObject
 結果不但可以裝, 還可以跑, 其中 `$invokeIMP(nil, nil);` 的 `nil` 們, 是我懶惰而已, 囧, 一般上是要帶 `id` 與 `SEL` 給他. 嗯, 所以圖片沒有騙人, 我們反過來看所謂的 `instance` 內的 `instance variable` 在哪? 雖然, `instance variable` 是跟在 `instance` 身上, 不過記載著一共有什麼, 卻是在 `class` 內
 
 `````
-(lldb) expr Ivar *$ivars = (Ivar *)class_copyIvarList(0x00000001064d1e70, &$count);
+(lldb) expr Ivar *$ivars = (Ivar *)class_copyIvarList((Class)0x00000001064d1e70, &$count);
 (lldb) expr for (int i = 0; i < $count; i++) { (void)NSLog(@"%s", (const char*)ivar_getName($ivars[i])); }
 2015-08-07 20:22:53.155 RuntimeSample_20150806[4764:16999] _storage
 `````
@@ -141,7 +141,7 @@ NormalObject
 真的! 在 `class` 上面還有一個 `class`! 原來他就是 `meta class`, 我們來看看我們的 `class method` 是不是被他記載著
 
 `````
-(lldb) expr Method *$methods = (Method *)class_copyMethodList(0x00000001064d1e98, &$count);
+(lldb) expr Method *$methods = (Method *)class_copyMethodList((Class)0x00000001064d1e98, &$count);
 (lldb) expr for (int i = 0; i < $count; i++) { (void)NSLog(@"%s", (const char*)method_getName($methods[i])); }
 2015-08-07 20:37:54.372 RuntimeSample_20150806[4764:16999] randomPart1
 2015-08-07 20:37:54.372 RuntimeSample_20150806[4764:16999] randomPart2
